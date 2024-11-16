@@ -52,6 +52,15 @@ return new class extends Migration
             $table->boolean('published');
             $table->timestamps();
         });
+
+        Schema::create('events', function(Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->text('content');
+            $table->string("image");
+            $table->boolean('published');
+            $table->timestamps();
+        });
     }
 
     public function down(): void
@@ -61,5 +70,6 @@ return new class extends Migration
         Schema::dropIfExists('users');
         Schema::dropIfExists('sessions');
         Schema::dropIfExists('horoscopes');
+        Schema::dropIfExists('events');
     }
 };
